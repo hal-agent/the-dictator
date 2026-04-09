@@ -24,6 +24,10 @@ struct ContentView: View {
                 Text("Listening...")
                     .foregroundColor(.red)
                     .pulseAnimation()
+            } else if mlxEngine.isProcessing {
+                Text(mlxEngine.transcribedText)
+                    .foregroundColor(.blue)
+                    .pulseAnimation()
             } else {
                 Text(mlxEngine.transcribedText)
                     .padding()
@@ -50,8 +54,12 @@ struct ContentView: View {
                     .cornerRadius(15)
             }
             .padding(.horizontal, 40)
+            .disabled(mlxEngine.transcribedText == "Loading Gemma model...")
         }
         .padding()
+        .onAppear {
+            mlxEngine.loadModel()
+        }
     }
 }
 
