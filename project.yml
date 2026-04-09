@@ -1,0 +1,24 @@
+name: NeuralFlow
+options:
+  bundleIdPrefix: ai.heyama
+  deploymentTarget:
+    iOS: 18.0
+targets:
+  NeuralFlow:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    info:
+      path: Sources/Info.plist
+      properties:
+        UIBackgroundModes: [audio]
+        NSMicrophoneUsageDescription: "NeuralFlow needs microphone access to dictate and process audio locally using MLX."
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    dependencies:
+      - package: mlx-swift
+packages:
+  mlx-swift:
+    url: https://github.com/ml-explore/mlx-swift
+    from: 0.12.0

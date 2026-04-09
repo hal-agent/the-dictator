@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22076A67C141F29CBD868AD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F401AB467188DC44E3E967 /* ContentView.swift */; };
+		87DA5B63F9794D58A8856E46 /* MLXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93373C9FE2B8C9EB04A43FB3 /* MLXEngine.swift */; };
+		8DAB4EDB0FFEBC5BA0C3B680 /* mlx-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 54B733E786BE8E0483018D22 /* mlx-swift */; };
+		A6D8E66CAB4F847A36FB76F5 /* NeuralFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EB06671D6DFCF9F194A79C /* NeuralFlowApp.swift */; };
+		BA6B457752C99ACE452B5ACB /* AudioCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F183466604B3D18373E3EF50 /* AudioCapture.swift */; };
+		DB404D240A2DBE2E71584A2B /* DictationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3638BCB332884410E54A3985 /* DictationIntent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		293DD04677EE595674DBB6E1 /* NeuralFlow.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NeuralFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F401AB467188DC44E3E967 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3638BCB332884410E54A3985 /* DictationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationIntent.swift; sourceTree = "<group>"; };
+		54EB06671D6DFCF9F194A79C /* NeuralFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralFlowApp.swift; sourceTree = "<group>"; };
+		93373C9FE2B8C9EB04A43FB3 /* MLXEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLXEngine.swift; sourceTree = "<group>"; };
+		B6986C87E2413739241F4AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F183466604B3D18373E3EF50 /* AudioCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCapture.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED9E4D50332ECADBB1986E7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DAB4EDB0FFEBC5BA0C3B680 /* mlx-swift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EB41F4325A59EE5014FE48E = {
+			isa = PBXGroup;
+			children = (
+				ACD9F38FD21B6C045DFDD7CF /* Sources */,
+				C3F3B0E6DB07274B15050DF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACD9F38FD21B6C045DFDD7CF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F183466604B3D18373E3EF50 /* AudioCapture.swift */,
+				29F401AB467188DC44E3E967 /* ContentView.swift */,
+				3638BCB332884410E54A3985 /* DictationIntent.swift */,
+				B6986C87E2413739241F4AB6 /* Info.plist */,
+				93373C9FE2B8C9EB04A43FB3 /* MLXEngine.swift */,
+				54EB06671D6DFCF9F194A79C /* NeuralFlowApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C3F3B0E6DB07274B15050DF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				293DD04677EE595674DBB6E1 /* NeuralFlow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		024BFC613FCFF7FC6909D889 /* NeuralFlow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C08739FD41E92759D3630EF /* Build configuration list for PBXNativeTarget "NeuralFlow" */;
+			buildPhases = (
+				62150CAF706B5D3D4D1C76E4 /* Sources */,
+				ED9E4D50332ECADBB1986E7B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeuralFlow;
+			packageProductDependencies = (
+				54B733E786BE8E0483018D22 /* mlx-swift */,
+			);
+			productName = NeuralFlow;
+			productReference = 293DD04677EE595674DBB6E1 /* NeuralFlow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B95FE1363FE287FFB65E5540 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = B2C3C139FC928A03EB69BBAD /* Build configuration list for PBXProject "NeuralFlow" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2EB41F4325A59EE5014FE48E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7FCEF1B539F9D495680E879B /* XCRemoteSwiftPackageReference "mlx-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C3F3B0E6DB07274B15050DF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				024BFC613FCFF7FC6909D889 /* NeuralFlow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62150CAF706B5D3D4D1C76E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6B457752C99ACE452B5ACB /* AudioCapture.swift in Sources */,
+				22076A67C141F29CBD868AD6 /* ContentView.swift in Sources */,
+				DB404D240A2DBE2E71584A2B /* DictationIntent.swift in Sources */,
+				87DA5B63F9794D58A8856E46 /* MLXEngine.swift in Sources */,
+				A6D8E66CAB4F847A36FB76F5 /* NeuralFlowApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		10940CA992C441BED320CD73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4C412DA2F3DA81C095A0CF8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.heyama.NeuralFlow;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4CAEC50C6F74D7F4B4EF4E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.heyama.NeuralFlow;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEAF19E010B6A1F9FCB3CE08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C08739FD41E92759D3630EF /* Build configuration list for PBXNativeTarget "NeuralFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CAEC50C6F74D7F4B4EF4E6C /* Debug */,
+				4C412DA2F3DA81C095A0CF8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B2C3C139FC928A03EB69BBAD /* Build configuration list for PBXProject "NeuralFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEAF19E010B6A1F9FCB3CE08 /* Debug */,
+				10940CA992C441BED320CD73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7FCEF1B539F9D495680E879B /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54B733E786BE8E0483018D22 /* mlx-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FCEF1B539F9D495680E879B /* XCRemoteSwiftPackageReference "mlx-swift" */;
+			productName = "mlx-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B95FE1363FE287FFB65E5540 /* Project object */;
+}
