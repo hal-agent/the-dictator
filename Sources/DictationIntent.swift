@@ -2,7 +2,7 @@ import AppIntents
 import UIKit
 
 struct DictationIntent: AppIntent {
-    static var title: LocalizedStringResource = "Dictate with NeuralFlow"
+    static var title: LocalizedStringResource = "Dictate with TheDictator"
     static var description = IntentDescription("Records audio and processes it using local Gemma 4.")
     
     // This intent runs in the background

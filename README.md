@@ -1,6 +1,6 @@
-# NeuralFlow 🎙️🧠
+# TheDictator 🎙️🧠
 
-Zero-latency, on-device Wispr Flow clone for iOS using Gemma 4 E2B and MLX Swift. 
+Zero-latency, on-device voice dictation app for iOS using Gemma 4 E2B and MLX Swift. 
 Designed to be triggered entirely offline via the iPhone 17 Pro Action Button.
 
 ## Setup Instructions
@@ -11,7 +11,7 @@ Designed to be triggered entirely offline via the iPhone 17 Pro Action Button.
    ```bash
    xcodegen
    ```
-4. Open `NeuralFlow.xcodeproj`.
+4. Open `TheDictator.xcodeproj`.
 5. Select your iPhone as the build target.
 6. Let Xcode fetch the `mlx-swift` package dependencies.
 7. Build and run!

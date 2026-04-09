@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>NeuralFlow needs microphone access to dictate and process audio locally using MLX.</string>
+	<string>TheDictator needs microphone access to dictate and process audio locally using MLX.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

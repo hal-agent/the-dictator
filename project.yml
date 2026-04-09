@@ -1,10 +1,10 @@
-name: NeuralFlow
+name: TheDictator
 options:
   bundleIdPrefix: ai.heyama
   deploymentTarget:
     iOS: 18.0
 targets:
-  NeuralFlow:
+  TheDictator:
     type: application
     platform: iOS
     sources:
@@ -13,7 +13,7 @@ targets:
       path: Sources/Info.plist
       properties:
         UIBackgroundModes: [audio]
-        NSMicrophoneUsageDescription: "NeuralFlow needs microphone access to dictate and process audio locally using MLX."
+        NSMicrophoneUsageDescription: "TheDictator needs microphone access to dictate and process audio locally using MLX."
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
     dependencies:

@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct NeuralFlowApp: App {
+struct TheDictatorApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
