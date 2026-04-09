@@ -6,54 +6,97 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            // Dark elegant background
+            // Dark background
             Color(UIColor.systemBackground).ignoresSafeArea()
             
-            VStack(spacing: 40) {
+            VStack(spacing: 0) {
+                // Top "Dynamic Island" style overlay
+                HStack {
+                    Image(systemName: "mic.badge.plus")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.white)
+                    
+                    Text(audioCapture.isRecording ? "Hold to stop" : "Hold to speak")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 4)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 12) {
+                        Image(systemName: "power")
+                            .font(.system(size: 14, weight: .bold))
+                            .frame(width: 30, height: 30)
+                            .background(Color(white: 0.2))
+                            .clipShape(Circle())
+                        
+                        Image(systemName: "square.and.pencil")
+                            .font(.system(size: 14, weight: .bold))
+                            .frame(width: 30, height: 30)
+                            .background(Color(white: 0.2))
+                            .clipShape(Circle())
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .background(Color(white: 0.1))
+                .cornerRadius(30)
+                .padding(.horizontal, 16)
+                .padding(.top, 10)
+                
                 Spacer()
                 
-                // The main "Flow" animation orb
-                FlowOrbView(isRecording: audioCapture.isRecording, isProcessing: mlxEngine.isProcessing)
-                    .onTapGesture {
-                        toggleRecording()
-                    }
-                
-                VStack(spacing: 12) {
+                // Status/Animation Area
+                VStack(spacing: 20) {
                     if audioCapture.isRecording {
-                        Text("Listening...")
-                            .font(.headline)
-                            .foregroundColor(.secondary)
+                        WaveformView()
+                            .frame(height: 60)
+                            .padding(.horizontal, 40)
                     } else if mlxEngine.isProcessing {
-                        Text("Thinking...")
-                            .font(.headline)
-                            .foregroundColor(.blue)
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .tint(.white)
                     } else {
-                        Text("Tap to dictate")
-                            .font(.headline)
-                            .foregroundColor(.secondary)
+                        Image(systemName: "mic.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(Color(white: 0.3))
                     }
                     
-                    if mlxEngine.transcribedText != "Waiting for audio..." && !audioCapture.isRecording {
+                    if mlxEngine.transcribedText != "Waiting for audio..." {
                         Text(mlxEngine.transcribedText)
                             .font(.body)
+                            .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding()
-                            .background(Color(UIColor.secondarySystemBackground))
+                            .background(Color(white: 0.15))
                             .cornerRadius(16)
                             .padding(.horizontal, 30)
-                            .transition(.opacity)
                     }
                 }
                 
                 Spacer()
                 
-                // Action Button mapping hint
-                HStack(spacing: 8) {
-                    Image(systemName: "button.programmable")
-                    Text("Map to Action Button via Shortcuts")
-                        .font(.footnote)
+                // Action Button hint (matches the style of bottom bar)
+                HStack {
+                    Image(systemName: "waveform.circle.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                    
+                    Text("Trigger via Action Button")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(Color(white: 0.6))
+                    
+                    Spacer()
+                    
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(Color(white: 0.4))
                 }
-                .foregroundColor(.gray)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
+                .background(Color(white: 0.1))
+                .cornerRadius(30)
+                .padding(.horizontal, 16)
                 .padding(.bottom, 20)
             }
         }
@@ -61,80 +104,28 @@ struct ContentView: View {
             mlxEngine.loadModel()
         }
     }
-    
-    private func toggleRecording() {
-        if audioCapture.isRecording {
-            audioCapture.stopRecording()
-            mlxEngine.processAudio(url: audioCapture.outputURL)
-        } else {
-            audioCapture.startRecording()
-        }
-    }
 }
 
-// Sleek, Wispr-style glowing morphing orb animation
-struct FlowOrbView: View {
-    var isRecording: Bool
-    var isProcessing: Bool
-    
-    @State private var scale: CGFloat = 1.0
-    @State private var rotation: Double = 0.0
+// Simple audio waveform animation mimicking the Dynamic Island equalizer
+struct WaveformView: View {
+    @State private var isAnimating = false
     
     var body: some View {
-        ZStack {
-            // Ambient outer glow (expands when recording)
-            Circle()
-                .fill(
-                    LinearGradient(
-                        colors: isProcessing ? [.blue, .cyan] : (isRecording ? [.purple, .pink, .orange] : [.gray.opacity(0.3)]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+        HStack(spacing: 6) {
+            ForEach(0..<8) { i in
+                RoundedRectangle(cornerRadius: 3)
+                    .fill(Color.white)
+                    .frame(width: 6, height: isAnimating ? CGFloat.random(in: 10...50) : 10)
+                    .animation(
+                        Animation.easeInOut(duration: 0.3)
+                            .repeatForever()
+                            .delay(Double(i) * 0.1),
+                        value: isAnimating
                     )
-                )
-                .frame(width: 140, height: 140)
-                .blur(radius: isRecording ? 40 : 20)
-                .scaleEffect(isRecording ? 1.5 : (isProcessing ? 1.2 : 1.0))
-                .opacity(isRecording ? 0.6 : (isProcessing ? 0.8 : 0.2))
-                .animation(.easeInOut(duration: isRecording ? 1.0 : 2.0).repeatForever(autoreverses: true), value: isRecording || isProcessing)
-            
-            // Expanding sonic rings when recording
-            if isRecording {
-                Circle()
-                    .stroke(Color.pink.opacity(0.6), lineWidth: 2)
-                    .frame(width: 100, height: 100)
-                    .scaleEffect(scale)
-                    .opacity(2.0 - scale)
-                    .onAppear {
-                        withAnimation(.easeOut(duration: 1.5).repeatForever(autoreverses: false)) {
-                            scale = 2.0
-                        }
-                    }
             }
-            
-            // Solid inner core
-            Circle()
-                .fill(
-                    LinearGradient(
-                        colors: isProcessing ? [.cyan, .blue] : (isRecording ? [.pink, .red] : [.gray, .black]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .frame(width: 90, height: 90)
-                .shadow(color: isRecording ? .pink.opacity(0.5) : .clear, radius: 15, x: 0, y: 10)
-                .rotationEffect(.degrees(rotation))
-                .onAppear {
-                    withAnimation(.linear(duration: 10).repeatForever(autoreverses: false)) {
-                        rotation = 360
-                    }
-                }
-            
-            // Mic icon
-            Image(systemName: isProcessing ? "waveform" : (isRecording ? "mic.fill" : "mic"))
-                .font(.system(size: 32, weight: .medium))
-                .foregroundColor(.white)
-                .symbolEffect(.bounce, value: isRecording)
         }
-        .frame(height: 200)
+        .onAppear {
+            isAnimating = true
+        }
     }
 }
