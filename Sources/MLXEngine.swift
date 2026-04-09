@@ -23,7 +23,7 @@ class MLXEngine: ObservableObject {
         Task {
             do {
                 // Using the 2B model as a local placeholder until E2B is available on the Hub
-                let config = ModelConfiguration(id: "mlx-community/gemma-2-2b-it-4bit")
+                let config = ModelConfiguration(id: "mlx-community/gemma-4-e2b-it-4bit")
                 self.container = try await #huggingFaceLoadModelContainer(configuration: config)
                 self.transcribedText = "Ready to dictate."
                 print("Model loaded successfully!")
