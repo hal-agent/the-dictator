@@ -1,8 +1,10 @@
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     @StateObject private var mlxEngine = MLXEngine()
     @StateObject private var audioCapture = AudioCapture()
+    @State private var lastCopiedToast: String?
 
     var body: some View {
         ZStack {
@@ -43,7 +45,11 @@ struct ContentView: View {
                 .cornerRadius(30)
                 .padding(.horizontal, 16)
                 .padding(.top, 10)
-                
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    Task { await toggleDictation() }
+                }
+
                 Spacer()
                 
                 // Status/Animation Area
@@ -100,8 +106,55 @@ struct ContentView: View {
                 .padding(.bottom, 20)
             }
         }
+        .overlay(alignment: .top) {
+            if let toast = lastCopiedToast {
+                Text(toast)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(Color.green.opacity(0.85))
+                    .cornerRadius(20)
+                    .padding(.top, 80)
+                    .transition(.opacity)
+            }
+        }
         .onAppear {
             mlxEngine.loadModel()
+            Task { _ = await audioCapture.requestPermission() }
+        }
+    }
+
+    // MARK: - Dictation flow
+
+    private func toggleDictation() async {
+        if audioCapture.isRecording {
+            // Stop recording → pass audio to Gemma 4 → copy result to clipboard.
+            let samples = audioCapture.stopRecording()
+            guard !samples.isEmpty else { return }
+            let cleaned = await mlxEngine.processAudio(samples)
+            if let cleaned, !cleaned.isEmpty {
+                UIPasteboard.general.string = cleaned
+                showToast("Copied to clipboard")
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
+            }
+        } else {
+            // Start recording.
+            guard await audioCapture.requestPermission() else { return }
+            do {
+                try audioCapture.startRecording()
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+            } catch {
+                mlxEngine.transcribedText = "Mic error: \(error.localizedDescription)"
+            }
+        }
+    }
+
+    private func showToast(_ message: String) {
+        withAnimation { lastCopiedToast = message }
+        Task {
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            withAnimation { lastCopiedToast = nil }
         }
     }
 }
