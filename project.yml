@@ -28,6 +28,15 @@ targets:
         product: MLXLMCommon
       - package: mlx-swift-lm
         product: MLXVLM
+schemes:
+  TheDictator:
+    build:
+      targets:
+        TheDictator: all
+    run:
+      config: Release
+    profile:
+      config: Release
 packages:
   mlx-swift-lm:
     url: https://github.com/platx-ai/mlx-swift-lm
